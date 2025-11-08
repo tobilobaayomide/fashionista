@@ -1,3 +1,17 @@
+@keyframes vertical-marquee {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: -100%;
+  }
+}
+
+.animate-vertical-marquee {
+  position: absolute;
+  animation: vertical-marquee 4s linear infinite;
+}
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@700&family=Bitcount+Grid+Single:wght@100..900&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Momo+Trust+Display&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -5,12 +19,6 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
 
 @media (prefers-color-scheme: dark) {
   :root {
