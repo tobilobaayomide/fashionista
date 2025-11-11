@@ -100,8 +100,27 @@ export default function SideNavbar() {
 
   return (
     <>
+      {/* Top bar for mobile */}
+  <nav className="flex md:hidden fixed top-0 left-0 w-full h-16 bg-white z-50 border-b border-black flex-row items-center justify-between px-4">
+        <button
+          onClick={() => setMenuOpen((open) => !open)}
+          className="flex flex-col items-center cursor-pointer focus:outline-none"
+          aria-label="Toggle menu"
+          style={{ fontFamily: 'Arima, Bricolage Grotesque, Momo Trust Display, PT Sans, sans-serif', fontWeight: 700 }}
+        >
+          <span className="text-lg font-bold text-black tracking-wide">ME</span>
+          <span className="text-lg font-bold text-black tracking-wide -mt-1">NU</span>
+        </button>
+        <div className="h-15 ml-6 w-px bg-black mx-2" />
+        <div className="flex items-center justify-center flex-1">
+          <span className="text-xl font-extrabold tracking-widest" style={{ fontFamily: 'Momo Trust Display, Arima, Bricolage Grotesque, PT Sans, sans-serif', fontWeight: 900 }}>
+            <span>fashio</span><span className="text-red-900">nista</span>
+          </span>
+        </div>
+      </nav>
+      {/* Sidebar for md+ screens */}
       <motion.nav
-        className="fixed left-0 top-0 h-screen w-20 flex flex-col items-center justify-between pt-2 pb-8 z-50 border-r border-gray-200"
+        className="hidden md:flex fixed left-0 top-0 h-screen w-20 flex-col items-center justify-between pt-2 pb-8 z-50 border-r border-gray-200"
         style={{ background: 'white', boxShadow: sidebarHover ? '0 8px 32px rgba(0,0,0,0.12)' : '0 2px 8px rgba(0,0,0,0.08)' }}
         onMouseEnter={() => setSidebarHover(true)}
         onMouseLeave={() => setSidebarHover(false)}
@@ -155,7 +174,7 @@ export default function SideNavbar() {
         >
           <button
             onClick={() => setMenuOpen(false)}
-            className="absolute top-8 right-8 group"
+            className="absolute top-20 right-8 group"
             aria-label="Close menu"
             style={{ background: 'transparent', border: 'none', padding: 0, cursor: 'pointer' }}
           >
@@ -177,15 +196,16 @@ export default function SideNavbar() {
               </span>
             </span>
           </button>
-          <ul className="space-y-10 w-full flex flex-col items-start" style={{ marginLeft: '20rem' }}>
+          <ul className="space-y-10 w-full flex flex-col items-start ml-20 md:ml-80">
             {navLinks.map((link, idx) => (
               <li key={link.href}>
                 <a
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="nav-fill-link text-9xl font-extrabold group"
+                  className="nav-fill-link text-7xl md:text-9xl font-extrabold"
                   style={{ fontFamily: 'Bricolage Grotesque, sans-serif', fontWeight: 900, position: 'relative', overflow: 'hidden', WebkitTextStroke: '2px #000', color: 'transparent' }}
                   ref={menuLinksRef.current[idx]}
+                  tabIndex={-1}
                 >
                   <span className="nav-fill-text" style={{ position: 'relative', zIndex: 2 }}>{link.label}</span>
                   <span className="nav-fill-clip">

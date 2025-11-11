@@ -70,14 +70,68 @@ export default function GalleryPage() {
           style={{ pointerEvents: "none" }}
         >
           <h1
-            className="text-[20vw] ml-15 font-extrabold select-none gallery-outline"
+            className="text-[20vw] font-extrabold select-none gallery-outline"
             style={{ lineHeight: 1, letterSpacing: "0.05em", fontFamily: 'Bricolage Grotesque, sans-serif' }}
           >
             Gallery
           </h1>
         </div>
-        
-  <div style={{ height: "100vh" }}></div>
+        {/* Scrollable gallery images - Top row */}
+        <div
+          className="flex items-center"
+          ref={topRowRef}
+          style={{ minHeight: "600px", whiteSpace: "nowrap" }}
+        >
+          {imagesTop.map((src, i) => (
+            <img
+              key={src}
+              src={src}
+              alt={`Gallery Editorial ${i + 1}`}
+              className="object-cover"
+              style={{
+                maxWidth: "450px",
+                width: "450px",
+                height: "300px",
+                objectFit: "cover",
+                zIndex: 2,
+                display: "inline-block",
+                marginRight: i === imagesTop.length - 1 ? undefined : "15px",
+                marginLeft: i === 0 ? "15px" : undefined,
+                marginTop: "-175px",
+                willChange: "transform",
+              }}
+            />
+          ))}
+        </div>
+        {/* Scrollable gallery images - Bottom row */}
+        <div
+          className="flex items-center mt-16"
+          ref={bottomRowRef}
+          style={{ minHeight: "600px", whiteSpace: "nowrap" }}
+        >
+          {imagesBottom.map((src, i) => (
+            <img
+              key={src}
+              src={src}
+              alt={`Gallery Editorial ${i + 13}`}
+              className="object-cover"
+              style={{
+                maxWidth: "450px",
+                width: "450px",
+                height: "300px",
+                objectFit: "cover",
+                zIndex: 2,
+                display: "inline-block",
+                marginRight: i === imagesBottom.length - 1 ? undefined : "15px",
+                marginLeft: i === 0 ? "15px" : undefined,
+                marginTop: "-725px",
+                willChange: "transform",
+              }}
+            />
+          ))}
+        </div>
+        {/* Spacer to allow scroll animation to complete */}
+  <div style={{ height: "450vh" }}></div>
       </main>
     </>
   );
