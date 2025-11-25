@@ -61,7 +61,7 @@ export default function SectionSeven() {
           <p className="text-white text-base mb-6 text-justify-left" style={{ fontFamily: 'PT Sans, sans-serif' }}>
             Celebrating bold femininity, this collection features sculptural silhouettes, rich textures, and gold accents for a statement of luxury. Designed for those who dare to stand out and embrace their inner muse.
           </p>
-          <div className="mt-18">
+          <div className="mt-12">
             <img
               src="/sectionthree.jpg"
               alt="Opulent Muse"
